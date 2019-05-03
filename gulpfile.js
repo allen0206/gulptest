@@ -58,6 +58,11 @@ gulp.task('watch', function () {
     gulp.watch('./source/js/**/*.js', ['babel']);
 });
 
+gulp.task('deploy', function () {
+    return gulp.src('./public/**/*')
+        .pipe($.ghPages());
+});
+
 gulp.task("image-min", () =>
     gulp.src("./source/images/*")
     .pipe($.if(options.env === "production", $.imagemin()))
