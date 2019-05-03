@@ -9,6 +9,7 @@ var mainBowerFiles = require('main-bower-files');
 var browserSync = require('browser-sync').create();
 var minimist = require('minimist')
 var gulpSequence = require('gulp-sequence')
+var ghPages = require('gulp-gh-pages');
 
 var envOptions = {
     string: 'env',
@@ -60,7 +61,7 @@ gulp.task('watch', function () {
 
 gulp.task('deploy', function () {
     return gulp.src('./public/**/*')
-        .pipe($.ghPages());
+        .pipe(ghPages());
 });
 
 gulp.task("image-min", () =>
